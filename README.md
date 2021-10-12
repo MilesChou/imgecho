@@ -7,4 +7,30 @@
 [![Total Downloads](https://poser.pugx.org/MilesChou/imgecho/d/total.svg)](https://packagist.org/packages/MilesChou/imgecho)
 [![License](https://poser.pugx.org/MilesChou/imgecho/license)](https://packagist.org/packages/MilesChou/imgecho)
 
-Echo image on iTerm App.
+Echo the image on iTerm App using [Inline Images Protocol](https://iterm2.com/documentation-images.html).
+
+## Installation
+
+Use Composer to install.
+
+```
+composer require mileschou/imgecho
+```
+
+## Usage
+
+Use the fluent API to build your control code. Following is example:
+
+```php
+$uri = 'https://chart.apis.google.com/chart?cht=lc&chs=450x200&chd=t:70,72,67,68,65,59,64,70,73,75,78,80&chxt=x,y&chxl=0:|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec&chg=10,20';
+
+$resolver = static function () use ($uri) {
+    return file_get_contents($uri);
+};
+
+$echoer = new MilesChou\ImgEcho\ImgEcho();
+$echoer->withName('basic');
+
+$echoer->withImage($resolver);
+$echoer->send();
+```
