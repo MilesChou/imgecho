@@ -34,3 +34,5 @@ $echoer->withName('basic');
 $echoer->withImage($resolver);
 $echoer->send();
 ```
+
+![](/docs/images/basic-example.png)
