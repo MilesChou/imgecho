@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MilesChou\Template;
+namespace MilesChou\ImgEcho;
 
-class Sample
+class ImgEcho
 {
     public function alwaysTrue(): bool
     {
